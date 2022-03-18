@@ -35,7 +35,7 @@ def get_inpx_entities(inpx_path: str) -> Generator[str, None, None]:
 					yield inp.read().decode('utf-8')
 
 
-def get_inp_data(inp: str) -> Generator[Book, None, None]:
+def get_inp_data(inp_text: str) -> Generator[Book, None, None]:
 	"""Get list of books information from text in inp format
 
 	Args:
@@ -45,8 +45,8 @@ def get_inp_data(inp: str) -> Generator[Book, None, None]:
 		list[Book]: information about each book in file
 	"""
 
-	inp = inp.replace('\r', '')
-	lines = inp.split('\n')
+	inp_text = inp_text.replace('\r', '')
+	lines = inp_text.split('\n')
 	for line in lines:
 		if line:
 			columns = re.split(r'', line)
