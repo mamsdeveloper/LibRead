@@ -1,4 +1,3 @@
-from distutils import extension
 from typing import NamedTuple
 from datetime import datetime
 
@@ -27,7 +26,8 @@ class Book(NamedTuple):
 		Args:
 			line_items (list[str]): items from one inp file line
 		"""
-
+		# unpacking values from splitted inp row
+		# incorrect data must be caught later
 		(
 			authors, genres, title,
 			series, series_num, file_name,
@@ -48,8 +48,17 @@ class Book(NamedTuple):
 
 		book = cls(authors, genres, title, series, series_num, file_name,
 		           size, index, deleted, extension, date, lang, rate, keywords)
-		
+
 		return book
+
+
+class BookDescription(NamedTuple):
+	"""Book information such as encoding, title, publicher and etc"""
+	encoding: str
+	title_info: dict[str, str]
+	document_info: dict[str, str]
+	document_info: dict[str, str]
+	publish_info: dict[str, str]
 
 
 if __name__ == '__main__':
